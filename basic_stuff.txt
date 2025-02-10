@@ -1,0 +1,75 @@
+article "[C# | Unit Tests with xUnit and Complex Inline Data Object](https://dev.to/hbolajraf/c-unit-tests-with-xunit-and-complex-inline-data-object-312h)":
+
+- **xUnit Framework**: An open-source unit testing tool for the .NET Framework, known for its extensibility and features that simplify writing and executing unit tests.
+
+- **Setting Up xUnit**:
+  - Install the xUnit framework in your project using NuGet Package Manager or the .NET CLI:
+    ```bash
+    dotnet add package xunit
+    dotnet add package xunit.runner.visualstudio
+    ```
+
+- **Writing Unit Tests with Complex Inline Data**:
+  - **Scenario**: Testing a `Calculator` class's `Add` method with various input data sets, including complex inline data objects.
+  - **Implementation**:
+    - Define a `Calculator` class with an `Add` method:
+      ```csharp
+      public class Calculator
+      {
+          public int Add(int a, int b)
+          {
+              return a + b;
+          }
+      }
+      ```
+    - Create a test class `CalculatorTests` using the `[Theory]` attribute to test multiple data sets:
+      ```csharp
+      public class CalculatorTests
+      {
+          private readonly Calculator _calculator;
+
+          public CalculatorTests()
+          {
+              _calculator = new Calculator();
+          }
+
+          [Theory]
+          [InlineData(2, 3, 5)]
+          [InlineData(-2, -3, -5)]
+          [InlineData(0, 0, 0)]
+          public void Add_WithInlineData_ReturnsExpectedResult(int a, int b, int expected)
+          {
+              int result = _calculator.Add(a, b);
+              Assert.Equal(expected, result);
+          }
+
+          [Theory]
+          [ClassData(typeof(ComplexInlineDataGenerator))]
+          public void Add_WithComplexInlineData_ReturnsExpectedResult(int a, int b, int expected)
+          {
+              int result = _calculator.Add(a, b);
+              Assert.Equal(expected, result);
+          }
+      }
+      ```
+    - For more complex data sets, implement a `ClassData` attribute with a custom data generator:
+      ```csharp
+      public class ComplexInlineDataGenerator : IEnumerable<object[]>
+      {
+          private readonly List<object[]> _data = new List<object[]>
+          {
+              new object[] { 2, 3, 5 },
+              new object[] { -2, -3, -5 },
+              new object[] { 0, 0, 0 },
+              new object[] { 1000, 500, 1500 },
+              new object[] { 1, -1, 0 },
+              new object[] { int.MaxValue, 1, int.MinValue },
+          };
+
+          public IEnumerator<object[]> GetEnumerator() => _data.GetEnumerator();
+
+          IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
+      }
+      ```
+
+This approach allows for testing methods with both simple and complex data sets efficiently. 
