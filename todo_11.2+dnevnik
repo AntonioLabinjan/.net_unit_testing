@@ -10,3 +10,109 @@ Proučavanje sql server profilera koji prati sve interakcije s bazom in real tim
 Konfiguriranje git-a i C#-a
 Proučavanje osnova C#-a => odrađen w3schools tutorial
 Gledanje yt tutoriala o C#-u u .net-u
+
+Razmišljanje o zadatku...skužija san ča actually moran delat i kako to napravit (of course, chatGPT mi je to složija u smislene rečenice):
+Točno! **Tvoj pristup je ispravan** – ako dodaješ **unit testing** na postojeći projekt, samo trebaš slijediti ove korake:
+
+---
+
+### **1️⃣ Analiza koda**
+✅ Pogledaj **postojeće funkcije/metode**  
+✅ Izdvoji **što primaju kao input**  
+✅ Razumij **kakav output vraćaju**  
+✅ Uoči **rubne slučajeve (edge cases)** – što se događa ako dobiju nevaljane podatke?
+
+---
+
+### **2️⃣ Dodavanje testing frameworka (xUnit, NUnit ili MSTest)**
+✅ **Za xUnit (preporučeno):**  
+Ako projekt već nema unit testove, prvo dodaj **xUnit paket**:
+```sh
+dotnet add package xunit
+dotnet add package Microsoft.NET.Test.Sdk
+dotnet add package xunit.runner.visualstudio
+```
+
+✅ Ako koristiš **Visual Studio**, možeš dodati xUnit kroz **NuGet Package Manager**.
+
+---
+
+### **3️⃣ Kreiranje testnog projekta**
+Napravit ćeš **poseban folder/projekt za testove**, npr. ako imaš projekt **`MyApp`**, dodaj **`MyApp.Tests`**:
+
+```sh
+dotnet new xunit -o MyApp.Tests
+cd MyApp.Tests
+dotnet add reference ../MyApp/MyApp.csproj
+```
+
+Time povezuješ testni projekt s glavnim projektom.
+
+---
+
+### **4️⃣ Pisanje test slučajeva**
+✅ Za svaku funkciju napišeš **barem 3 testa**:  
+   - **Normalni slučaj** (validni inputi)  
+   - **Rubni slučajevi** (npr. prazni stringovi, 0, negativni brojevi, itd.)  
+   - **Greške** (provjera izuzetaka, npr. dijeljenje s nulom)  
+
+**Primjer:**
+Ako imaš funkciju `int Add(int a, int b)`, testovi mogu izgledati ovako:
+```csharp
+[Fact]
+public void Add_ShouldReturnCorrectSum()
+{
+    var result = _mathService.Add(2, 3);
+    Assert.Equal(5, result);
+}
+
+[Fact]
+public void Add_ShouldWorkWithNegativeNumbers()
+{
+    var result = _mathService.Add(-2, -3);
+    Assert.Equal(-5, result);
+}
+
+[Fact]
+public void Add_ShouldReturnZeroForZeroInputs()
+{
+    var result = _mathService.Add(0, 0);
+    Assert.Equal(0, result);
+}
+```
+
+**Testiranje izuzetaka (npr. dijeljenje s nulom)**:
+```csharp
+[Fact]
+public void Divide_ByZero_ShouldThrowException()
+{
+    Assert.Throws<DivideByZeroException>(() => _mathService.Divide(10, 0));
+}
+```
+
+---
+
+### **5️⃣ Pokretanje testova**
+✅ Koristi **`dotnet test`** u terminalu:
+```sh
+dotnet test
+```
+Ako si u **Visual Studio**, možeš koristiti **Test Explorer**.
+
+✅ Ako neki test faila, dobit ćeš poruku **što nije prošlo** i možeš popraviti kod.
+
+---
+
+### **6️⃣ Integracija u CI/CD**
+Ako želiš **automatski pokretati testove pri svakoj promjeni koda**, dodaj ih u **GitHub Actions** ili neki CI/CD alat.
+
+---
+
+### **Zaključak**
+Da, **unit testing framework se lako doda na postojeći projekt**:
+✔ **Analiziraš postojeće funkcije**  
+✔ **Dodaješ xUnit (ili drugi framework)**  
+✔ **Napišeš testove za normalne, rubne i error slučajeve**  
+✔ **Pokreneš `dotnet test` i ispraviš failane testove**  
+
+Ako ovako složiš testove, imat ćeš **siguran i stabilan kod** koji se neće lako pokvariti kad nešto promijeniš. 🚀
