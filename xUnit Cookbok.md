@@ -1,5 +1,3 @@
-Evo ti **xUnit Cookbook** u Markdown formatu, tako da ga možeš direktno ubaciti u neki repo ili čitati u nekom markdown vieweru.  
-
 ---  
 
 ```md
@@ -261,6 +259,5 @@ public class ApiClientTests
 
 ---
 
-🚀 **Ovaj dokument ti daje sve potrebno da radiš s xUnit frameworkom u C#**.  
-Ako ti zatreba još nešto, samo reci! 😃  
+
 ```
