@@ -1,3 +1,5 @@
 - Slaganje službenog šalabahtera za unit testing u .net-u koristeći xUnit framework (to je bilo za džabe hehehe)
 - setupiranje DLL-ova za rad u Visual Studiu, preuzimanje .net dependeciesa, kopanje po folderima zbog problema s BAT fileovima
 - interakcija s aplikacijom za rezervacija i praćenje aktivnosti preko sql server profilera (koje procedure se pozivaju, kada, tko ih je pozvao itd.)
+
+- Slaganje službenog šalabahtera za unit testing koristeći fluid assertions zato jer verzija .neta koja se ovdje koristi ne podržava xUnit (još bolje...ovo je jednostavnije :) )
