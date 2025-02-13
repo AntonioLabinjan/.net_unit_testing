@@ -1,2 +1,3 @@
-Upoznvanje s debuging metodama unutar viduak studia
+Upoznvanje s debuging metodama unutar visual studia
 Pokušavamo pristupiti admin sekciji aplikacije
+Pokretanje i debug mnogobrojnih sql procedura/upita i srodne zajebancije 
