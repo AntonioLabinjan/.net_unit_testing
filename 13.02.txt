@@ -2,3 +2,26 @@ Upoznvanje s debuging metodama unutar visual studia
 Pokušavamo pristupiti admin sekciji aplikacije
 Pokretanje i debug mnogobrojnih sql procedura/upita i srodne zajebancije 
 Osposobljavanje aplikacije za rad pomoću iterativnog debugiranja i piljenja po raznim sql skriptama
+
+
+Visual Studio ima gomilu debugging metoda, ali evo ti one najbitnije fore koje moraš znati:
+
+🔹 Osnovne debugging naredbe
+Step Into (F11) – Ulazi u funkcije liniju po liniju (ako je funkcija pozvana, ući će unutra).
+Step Over (F10) – Preskoči ulazak u funkcije (izvrši funkciju, ali ne ulazi u kod funkcije).
+Step Out (Shift + F11) – Izađe iz trenutne funkcije i vrati se na mjesto odakle je pozvana.
+Run to Cursor (Ctrl + F10) – Pokrene kod do linije na kojoj je kursor.
+Set Next Statement (Ctrl + Shift + F10) – Premjesti točku izvođenja koda na liniju na kojoj je kursor (odlična fora ako želiš preskočiti dio koda ili ponovo pokrenuti neki dio).
+🔹 Napredne fore
+Breakpoints (F9) – Postavi točke prekida gdje će se program zaustaviti. Možeš ih kombinirati s uvjetima (npr. zaustavi se samo ako varijabla x == 10).
+Conditional Breakpoints – Postavi breakpoint koji će se aktivirati samo ako se ispuni određeni uvjet.
+Tracepoints – Umjesto da pauzira program, možeš koristiti tracepoint da ispiše poruku u Output prozor (kao printf debugging, ali bolji).
+Exception Settings – Možeš namjestiti da debugger automatski pauzira kod kada se dogodi određeni exception (čak i ako ga uhvati try-catch).
+Edit and Continue – Omogućuje ti mijenjanje koda dok se program izvršava bez restarta (radi u većini slučajeva).
+Debugging Multi-Threads – Ako imaš više threadova, možeš prebacivati između njih i pratiti što se gdje događa.
+🔹 Memory & Performance debugging
+Watch Window – Dodaj varijable koje želiš pratiti u realnom vremenu dok se izvršava kod.
+Immediate Window – Izvrši kod liniju po liniju bez pokretanja programa. Možeš testirati izraze i funkcije ručno.
+Autos & Locals Windows – Automatski prikazuje vrijednosti varijabli koje se koriste u trenutnoj funkciji.
+Call Stack Window – Prikazuje redoslijed pozivanja funkcija (odličan alat za praćenje gdje je kod započeo).
+Heap & Memory Diagnostics – Ako tražiš memory leakove, možeš koristiti alat za analizu memorije i heap allocationa.
