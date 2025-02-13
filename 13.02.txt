@@ -1,4 +1,4 @@
 Upoznvanje s debuging metodama unutar visual studia
 Pokušavamo pristupiti admin sekciji aplikacije
 Pokretanje i debug mnogobrojnih sql procedura/upita i srodne zajebancije 
-Osposobljavanje aplikacije za rad
+Osposobljavanje aplikacije za rad pomoću iterativnog debugiranja i piljenja po raznim sql skriptama
