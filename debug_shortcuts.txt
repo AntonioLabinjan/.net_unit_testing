@@ -1,0 +1,42 @@
+U debuggiranju, **Step Over**, **Step Into** i **Step Out** su osnovne metode za kontrolu izvršavanja koda liniju po liniju. Evo objašnjenja svake od njih i odgovarajućih **keyboard shortcut-a** u **VS Code** i **PyCharm-u** (mogu biti slični u drugim IDE-ima).
+
+### 1️⃣ **Step Over**  
+🔹 **Što radi?**  
+- Izvrši trenutnu liniju koda **bez ulaska** u funkcije.  
+- Ako linija sadrži poziv funkcije, debugger će **preskočiti unutrašnjost funkcije** i prijeći na sljedeću liniju nakon poziva.
+
+🔹 **Shortcut:**  
+- **VS Code:** `F10`  
+- **PyCharm:** `F8`
+
+---
+
+### 2️⃣ **Step Into**  
+🔹 **Što radi?**  
+- Ulazi u funkciju ako je trenutna linija njen poziv.  
+- Ako nije funkcija, ponaša se kao **Step Over**.  
+- Omogućuje detaljno praćenje izvršavanja funkcije.
+
+🔹 **Shortcut:**  
+- **VS Code:** `F11`  
+- **PyCharm:** `F7`
+
+---
+
+### 3️⃣ **Step Out**  
+🔹 **Što radi?**  
+- Izlazi iz trenutne funkcije i vraća se na liniju gdje je funkcija pozvana.  
+- Koristi se kad si unutar funkcije i želiš se brzo vratiti na viši nivo izvršavanja.
+
+🔹 **Shortcut:**  
+- **VS Code:** `Shift + F11`  
+- **PyCharm:** `Shift + F8`
+
+---
+
+### 🔥 **Zaključak**  
+- **Step Over (`F10` / `F8`)** – Preskače funkciju i ide na sljedeću liniju.  
+- **Step Into (`F11` / `F7`)** – Ulazi u funkciju kako bi se pregledao njen kod.  
+- **Step Out (`Shift + F11` / `Shift + F8`)** – Izlazi iz funkcije i vraća se na kod koji ju je pozvao.
+
+Koji IDE koristiš? Trebaš još neko pojašnjenje? 🚀
