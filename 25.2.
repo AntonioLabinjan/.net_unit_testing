@@ -1,2 +1,3 @@
 Pokretanje testova, praćenje grešaka i kreiranje prazne baze
 Pokušaj kreiranja connection stringa
+Spajanje na novu praznu bazu za testove i utvrđivanje da sve prolazi 
