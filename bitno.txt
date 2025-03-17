@@ -1,11 +1,1 @@
-Adresa za bisglobal
-- C:\Program Files (x86)\bisglobal\Klijent
-
-Connection string PULA
-- Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=Pula;Data Source=VM-SQL-PU
-
-Connection string RTS
-- Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=RTS;Data Source=VM-SQL-PU
-
-Connection string Testiranje
-- Provider=SQLOLEDB.1;Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=BisTesting;Data Source=PU-SQL
+CERTIFIED DATA
